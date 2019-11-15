@@ -158,7 +158,7 @@ class Proccessor{
     public void jmpZ () {if (memory[pc-1]==0) pc=memory[pc+1]; else pc++;}
 }
 
-/*a
+/*
 Tasks t = new Tasks();
 class Tasks{
 
