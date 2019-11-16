@@ -89,7 +89,7 @@ class Proccessor{
 
     int[] memory = new int[100];
     int pc = 0; //program counter
-    int ac = 0; // variable for calculation
+    int ac = 10; // variable for calculation
     int reg_H = 0;
     int reg_L = 0;
     int reg_P = 0;
@@ -105,7 +105,11 @@ class Proccessor{
         }
     }
 
-    public void showAc(){System.out.println(Integer.toHexString(ac) +"|dec =" + ac);}
+    public void showAc(){
+        String num = "0000" + Integer.toHexString(ac).toUpperCase();
+        while (num.length() > 4) num =num.substring(1);
+        System.out.println(num +"|dec =" + ac);
+    }
 
     public void setPc(int pc){
         this.pc = pc;
@@ -190,9 +194,9 @@ class Proccessor{
     public void decH (){reg_H--;}
     public void decL (){reg_L--;}
 
-    public void addAc (){
-        ac+=memory[memory[pc++]];
-        System.out.println(ac);
+    public void addAc (){pc+=1;
+        ac+=memory[memory[pc]];
+        System.out.println(memory[memory[pc]]);
     } //AA
     public void subAc (){pc++; ac-=memory[memory[pc++]];} //AF
 
@@ -207,9 +211,8 @@ class Proccessor{
 
 /*
 Programs:
-sum array of 10 elements (from 0A to 13):
-01 34 04 0A 33 0D AA 0E 1F 07 16 03 34 04 CF 01 01 01 01 01 01 01 01 01 01
-
+sum array of 10 elements (from 0f to 18):
+01 34 04 0A 33 0E AA 0F 1F 07 16 03 34 04 CF 01 01 01 01 01 01 01 01 01 01
 
  */
 
