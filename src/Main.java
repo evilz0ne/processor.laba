@@ -24,28 +24,35 @@ public class Main {
 
         do
         {
-            //program menu
-            m.showMenu();
-            input = in.nextLine();
-            switch (Integer.parseInt(input)){
-                case 1: proc.showMemory(proc.getMemory()); //show memory
-                    break;
-                case 2: proc.setMemory(m.pasaran()); //insert program
-                    break;
-                case 3: proc.start(); //start
-                    break;
-                case 4: proc = new Proccessor(); //reset
-                    break;
-                case 5: proc.showAc();// show ac
-                    break;
-                default: System.out.println("No such comand: " + input); break;
+            try {
+                //program menu
+                m.showMenu();
+                input = in.nextLine();
+                switch (Integer.parseInt(input)) {
+                    case 1:
+                        proc.showMemory(proc.getMemory()); //show memory
+                        break;
+                    case 2:
+                        proc.setMemory(m.pasaran()); //insert program
+                        break;
+                    case 3:
+                        proc.start(); //start
+                        break;
+                    case 4:
+                        proc = new Proccessor(); //reset
+                        break;
+                    case 5:
+                        proc.showAc();// show ac
+                        break;
+                    default:
+                        System.out.println("No such comand: " + input);
+                        break;
+                }
             }
-            if (input.equalsIgnoreCase("1")){
-
-            } else {
-
-
+            catch (Exception e) {
+                System.out.println("wrong input");
             }
+
         }
         while (!input.equalsIgnoreCase("stop"));
 
